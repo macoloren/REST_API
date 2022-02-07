@@ -7,7 +7,8 @@ from django.contrib.auth.models import BaseUserManager
 class UserProfileManager(BaseUserManager):  #Manager para perfiles de usuarios
     def create_user(self, email, name, password=None):  #crear nuevo user profile
         if not email:
-            raise ValueError('Usuario debe tener un Email')
+            raise ValueError('Usuario denegado debe tener un E-mail')
+            
 
         email = self.normalize_email(email)  #para el email despues del @ pone todos los caracteres en minusculas LOWERCASE
         user = self.model(email=email, name=name)
